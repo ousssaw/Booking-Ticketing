@@ -11630,11 +11630,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\orhounilazaar\\Desktop\\Ticketing\\Booking.Ticketing\\Booking.Ticketing.csproj",
+      "projectUniqueName": "C:\\Users\\orhounilazaar\\Desktop\\Ticket\\Booking.Ticketing\\Booking.Ticketing.csproj",
       "projectName": "Booking.Ticketing",
-      "projectPath": "C:\\Users\\orhounilazaar\\Desktop\\Ticketing\\Booking.Ticketing\\Booking.Ticketing.csproj",
+      "projectPath": "C:\\Users\\orhounilazaar\\Desktop\\Ticket\\Booking.Ticketing\\Booking.Ticketing.csproj",
       "packagesPath": "C:\\Users\\orhounilazaar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\orhounilazaar\\Desktop\\Ticketing\\Booking.Ticketing\\obj\\",
+      "outputPath": "C:\\Users\\orhounilazaar\\Desktop\\Ticket\\Booking.Ticketing\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

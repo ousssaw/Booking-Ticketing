@@ -8,10 +8,10 @@ namespace Booking.Ticketing.Services
         private readonly CsvFileReader _csvFileRedaer;
         private readonly ITicketingServices _ticketingService;
 
-        public FileWatcherService(CsvFileReader csvFileReader, ITicketingServices orderService)
+        public FileWatcherService(CsvFileReader csvFileReader, ITicketingServices ticketingService)
         {
             _csvFileRedaer = csvFileReader;
-            _ticketingService = orderService;
+            _ticketingService = ticketingService;
         }
         public void FileSystemWatcher_Created(object sender, FileSystemEventArgs e)
         {
@@ -19,22 +19,6 @@ namespace Booking.Ticketing.Services
             {
                 var ticketsLines = _csvFileRedaer.ReadDocument(e.FullPath);
             }
-
-
-            //var allFiles = _csvFileRedaer.GetAllFiles();
-            //if (allFiles != null)
-            //{
-            //    foreach (var file in allFiles)
-            //    {
-            //        var prchestraLines = _csvFileRedaer.ReadDocument(file, "VPV_VENTEVPV4");
-            //        _orderService.SetOrderIntoDb(prchestraLines);
-            //    }
-            //    _orderService.CreateVpOrder("VPV_VENTEVPV4", 6001865);
-            //}
-            //else
-            //{
-            //    _logger.LogInfo($"No file", LogType.Technical);
-            //}
         }
 
         public void MonitorDirectory(string path)

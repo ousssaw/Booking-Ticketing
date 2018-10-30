@@ -2,6 +2,6 @@
 {
     public class CsvFileReaderConfiguration
     {
-        public string DirectoryPath { get; set; }
+       public string DirectoryPath { get; set; }
     }
 }

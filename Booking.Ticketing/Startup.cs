@@ -27,7 +27,7 @@ namespace Booking.Ticketing
         public void ConfigureServices(IServiceCollection services)
         {
             IConfigurationRoot configuration = GetConfiguration();
-
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddCors(options =>
@@ -38,17 +38,19 @@ namespace Booking.Ticketing
                         .AllowAnyHeader());
             });
             services.AddRouting();
-
+            services.AddOptions();
             services.Configure<CsvFileReaderConfiguration>(configuration.GetSection("CsvFileReaderConfiguration"));
             services.AddSingleton<ITicketingServices, TicketingServices>();
-
             services.AddTransient<CsvFileReader>();
             services.AddSingleton<IFileWatcherService, FileWatcherService>();
 
-            var sp = services.BuildServiceProvider();
-            var fileWatcherService = sp.GetService<IFileWatcherService>();
-            var path = @"C:\\Users\\orhounilazaar\\Desktop\\ticket";
-            //var path = sp.GetService<IOptions<CsvFileReaderConfiguration>>().Value.DirectoryPath;
+            var serviceProvider = services.BuildServiceProvider();
+            var fileWatcherService = serviceProvider.GetService<IFileWatcherService>();
+            var conf = serviceProvider.GetService<IOptions<CsvFileReaderConfiguration>>();
+
+
+            var path = @"C:\\Users\\orhounilazaar\\Desktop\\totot";
+            //var path = serviceProvider.GetService<IOptions<CsvFileReaderConfig>>().Value.DirectoryPath;
             fileWatcherService.MonitorDirectory(path);
 
 
@@ -108,6 +110,10 @@ namespace Booking.Ticketing
             var configuration = new ConfigurationBuilder()
                .SetBasePath(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location))
                .AddJsonFile("appsettings.json", optional: true);
+            if (!string.IsNullOrEmpty(environment))
+            {
+                configuration.AddJsonFile($"appsettings.{environment}.json", optional: true);
+            }
             configuration.AddEnvironmentVariables();
 
             return configuration.Build();

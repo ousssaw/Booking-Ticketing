@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Booking.Ticketing.Dto
+﻿namespace Booking.Ticketing.Dto
 {
     public class TicketLine
     {
