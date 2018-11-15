@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "48fd1bdd3a4764a139bc5f1af9c3f9f413a7b55f"
+    "signature": "124c9a5fb07a878b1ccac30ae06698b165e10920"
   },
   "compilationOptions": {
     "defines": [
@@ -27,6 +27,7 @@
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.0.1916590",
+          "NEST": "6.4.0",
           "SwashBuckle.AspNetCore.MicrosoftExtensions": "0.4.0"
         },
         "runtime": {
@@ -34,6 +35,17 @@
         },
         "compile": {
           "Booking.Ticketing.dll": {}
+        }
+      },
+      "Elasticsearch.Net/6.4.0": {
+        "runtime": {
+          "lib/netstandard2.0/Elasticsearch.Net.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.4.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Elasticsearch.Net.dll": {}
         }
       },
       "Microsoft.NETCore.App/2.1.0": {
@@ -203,6 +215,20 @@
       "Microsoft.NETCore.Platforms/2.1.0": {},
       "Microsoft.NETCore.Targets/2.1.0": {},
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.0.1916590": {},
+      "NEST/6.4.0": {
+        "dependencies": {
+          "Elasticsearch.Net": "6.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Nest.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.4.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Nest.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.0"
@@ -3210,6 +3236,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Elasticsearch.Net/6.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vOnMRC2C2iCfMyMivNhzbRndE4TVmfiXrqNwx87VMlHcOFkjScOpVB3ZufLD96cfs1XooIbY68j7Htf+joFDUA==",
+      "path": "elasticsearch.net/6.4.0",
+      "hashPath": "elasticsearch.net.6.4.0.nupkg.sha512"
+    },
     "Microsoft.NETCore.App/2.1.0": {
       "type": "package",
       "serviceable": true,
@@ -3258,6 +3291,13 @@
       "sha512": "sha512-ATgVprl2wbWCIV2q79OzRdNgM7HtS+GOcHvaKPGdPK5QMGXd7I5SxDCV/ZFe++vJUIGAj7zMz4F3vhS2dNHZkw==",
       "path": "microsoft.visualstudio.azure.containers.tools.targets/1.0.1916590",
       "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.0.1916590.nupkg.sha512"
+    },
+    "NEST/6.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EfMc+LCDqfA30DZ0byyMFX93f+ku1sM1wDw6tQByBftI8ggVSPG+KHYAswVuWGEGMDCSoWyFOIU0qp+OHusqrQ==",
+      "path": "nest/6.4.0",
+      "hashPath": "nest.6.4.0.nupkg.sha512"
     },
     "NETStandard.Library/2.0.3": {
       "type": "package",

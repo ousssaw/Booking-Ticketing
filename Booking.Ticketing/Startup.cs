@@ -40,7 +40,7 @@ namespace Booking.Ticketing
             services.AddRouting();
             services.AddOptions();
             services.Configure<CsvFileReaderConfiguration>(configuration.GetSection("CsvFileReaderConfiguration"));
-            services.AddSingleton<ITicketingServices, TicketingServices>();
+            services.AddSingleton<IElasticSearchServices, ElasticSearchServices>();
             services.AddTransient<CsvFileReader>();
             services.AddSingleton<IFileWatcherService, FileWatcherService>();
 

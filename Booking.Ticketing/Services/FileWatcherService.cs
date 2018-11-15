@@ -6,18 +6,22 @@ namespace Booking.Ticketing.Services
     public class FileWatcherService : IFileWatcherService
     {
         private readonly CsvFileReader _csvFileRedaer;
-        private readonly ITicketingServices _ticketingService;
+        private readonly IElasticSearchServices _elasticSearchService;
 
-        public FileWatcherService(CsvFileReader csvFileReader, ITicketingServices ticketingService)
+        public FileWatcherService(CsvFileReader csvFileReader, IElasticSearchServices elasticSearchService)
         {
             _csvFileRedaer = csvFileReader;
-            _ticketingService = ticketingService;
+            _elasticSearchService = elasticSearchService;
         }
         public void FileSystemWatcher_Created(object sender, FileSystemEventArgs e)
         {
             if (File.Exists(e.FullPath))
             {
                 var ticketsLines = _csvFileRedaer.ReadDocument(e.FullPath);
+                if(ticketsLines != null)
+                {
+                    _elasticSearchService.IndexAll(ticketsLines);
+                }
             }
         }
 
