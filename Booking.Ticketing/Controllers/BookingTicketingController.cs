@@ -7,10 +7,10 @@ namespace Booking.Ticketing.Controllers
     public class BookingTicketingController : Controller
     {
         private readonly CsvFileReader _csvFileReader;
-        private readonly ITicketingServices _ticketingService;
+        private readonly IElasticSearchServices _ticketingService;
 
         public BookingTicketingController(CsvFileReader csvFileReader,
-           ITicketingServices ticketingService)
+           IElasticSearchServices ticketingService)
         {
             _csvFileReader = csvFileReader;
             _ticketingService = ticketingService;
