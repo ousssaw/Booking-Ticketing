@@ -11,10 +11,10 @@ namespace Booking.Ticketing.Services
 
         protected readonly ElasticClient Client;
 
-        protected string IndexName = "";
+        protected string IndexName = "ticketing";
         public ElasticSearchIndexer()
         {
-            Client = InitClient("");
+            Client = InitClient("http://localhost:9200");
             InitIndexes();
         }
 
@@ -37,10 +37,10 @@ namespace Booking.Ticketing.Services
             }
         }
 
-        public IIndexResponse Index(TicketLine data, bool ovveride = false)
+        public IIndexResponse Index(TicketLine data, bool overrides = false)
         {
             Refresh();
-            if (ovveride)
+            if (overrides)
             {
                 DeleteIfExists(data.IndexKey);
             }
