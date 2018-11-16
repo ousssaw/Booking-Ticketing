@@ -42,6 +42,7 @@ namespace Booking.Ticketing
             services.Configure<CsvFileReaderConfiguration>(configuration.GetSection("CsvFileReaderConfiguration"));
             services.AddSingleton<IElasticSearchServices, ElasticSearchServices>();
             services.AddTransient<CsvFileReader>();
+            services.AddTransient<ElasticSearchIndexer>();
             services.AddSingleton<IFileWatcherService, FileWatcherService>();
 
             var serviceProvider = services.BuildServiceProvider();
