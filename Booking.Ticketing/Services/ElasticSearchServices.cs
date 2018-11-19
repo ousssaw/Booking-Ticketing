@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Booking.Ticketing.Dto;
 
 namespace Booking.Ticketing.Services
@@ -13,10 +14,16 @@ namespace Booking.Ticketing.Services
         }
         public void IndexAll(IEnumerable<TicketLine> ticketsLines, bool overrides = false)
         {
+            int cmp = 0;
+            DateTime start = DateTime.Now;
             foreach(var ticket in ticketsLines)
             {
                 _elasticIndexer.Index(ticket, overrides);
+                cmp++;
+
             }
+            DateTime end = DateTime.Now;
+            Console.WriteLine($"indexation of {cmp} lines took {(end - start).TotalSeconds}");
         }
     }
 }
